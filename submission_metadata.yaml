@@ -1,0 +1,48 @@
+team_name: "CodeBroz"
+
+primary_contact:
+  name: "Avinash Dubey"
+  email: "avidubey008@gmail.com"
+  phone: "+917068589489"
+
+
+
+github_repo: "https://github.com/avidubey08/Intelligent-Candidate-Discovery-Ranking-Challenge"
+sandbox_link: "https://huggingface.co/spaces/CodeBroz/IronMindX"
+
+reproduce_command: "python rank.py --candidates India_runs_data_and_ai_challenge\candidates.jsonl --out ./submission.csv"
+
+compute:
+  platform: "Windows PC / conda Python 3.13"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.13.0"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "Antigravity (Google DeepMind)"
+
+ai_usage_summary: |
+  Used AI assistant for architecture discussion, code scaffolding, and review.
+  All ranking logic, feature weights, and proxy-term dictionaries are
+  hand-authored and documented. No candidate data was fed to any LLM during ranking.
+
+methodology_summary: |
+  Rule-based ranker with five scoring buckets: skill/role fit (40%),
+  career substance (35%), logistics (15%), education (10%) — combined into
+  a base fit score, multiplied by a behavioral availability factor built
+  from non-linear decay on last_active_date and avg_response_time_hours.
+  Honeypot detection via rule-based consistency checks + Isolation Forest
+  on engineered cross-field features. Output is a transparent weighted sum,
+  fully decomposable per candidate for Stage 4/5 review.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
